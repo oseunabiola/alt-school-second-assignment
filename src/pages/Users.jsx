@@ -51,7 +51,9 @@ export default function Users() {
 
   return (
     <div className="container p-1">
-      {currentPage} of {totalPages}
+      <div className="text-center">
+        Page {currentPage} of {totalPages}
+      </div>
       <Pagination setCurrentPage={setCurrentPage} totalPages={totalPages} />
       <div className="d-flex flex-wrap">
         {users?.slice(firstUserIndex, lastUserIndex)?.map((_user, index) => (
@@ -118,10 +120,19 @@ function Pagination({ currentPage, totalPages, setCurrentPage }) {
           >
             Prev
           </button>
-
-<select>
-  {Array(totalPages).map()}
-</select>
+          <select
+            className="me-1"
+            onChange={(e) => setCurrentPage(+e.target.value)}
+            value={+currentPage}
+          >
+            {Array(totalPages)
+              .fill("")
+              .map((_page, index) => (
+                <option value={index + 1} key={index}>
+                  {index + 1}
+                </option>
+              ))}
+          </select>
 
           <button
             className="p-1 me-1"
