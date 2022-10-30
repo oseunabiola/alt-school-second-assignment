@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Link, Outlet, Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Home from "./pages/Home";
-import Users from "./pages/Users.";
+import Users from "./pages/Users";
 
 export default function App() {
   return (
